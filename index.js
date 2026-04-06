@@ -7,7 +7,6 @@ const main = async() => {
     const busquedas = new Busquedas();
     let opt;
 
-
     do{
         opt = await inquirerMenu();
         console.log(opt);
@@ -15,21 +14,15 @@ const main = async() => {
         switch( opt ){
             case '1':
                 //Mostrar mensaje
-                const lugar = await leerInput('Ciudad: ');
-                console.log(lugar);
-                //Buscar los lugares
+                const lugar = await leerInput('Pais: ');
+                const pais = await busquedas.pais(lugar);
 
-                //Seleccionar el lugar
-
-                //Clima
-
-                console.log("\nInformación de la ciudad\n".green, );
-                console.log("\nCiudad:, \n".white, );
-                console.log("\nLat.\n".blue, );
-                console.log("\nLng\n".blue, );
-                console.log("\nTemperatura\n".blue, );
-                console.log("\nMínima\n".blue, );
-                console.log("\nMáxima\n".blue, );
+                console.log("\nInformación del país".green);
+                console.log("Capital: ".blue, pais.capital[0]);
+                console.log("Lat: ".blue, pais.latitud);
+                console.log("Lng: ".blue, pais.longitud);
+                console.log("Región: ".blue, pais.region);
+                console.log("Población: ".blue, pais.poblacion);
 
             break;
         }

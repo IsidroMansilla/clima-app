@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 class Busquedas{
     historial = ["Madrid", "Barcelona", "Granada"];
 
@@ -5,11 +7,25 @@ class Busquedas{
         
     }
 
-    async ciudad( lugar = ''){
+    async pais( lugar = ''){
         //peticion http
-        console.log(lugar);
+        const url = `https://restcountries.com/v3.1/name/${lugar}`;
+        try{
+            const resp = await axios.get(url);
+            const respuesta = resp.data.map( lugar => ({
+                capital: lugar.capital,
+                region: lugar.region,
+                latitud: lugar.latlng[0],
+                longitud: lugar.latlng[1],
+                poblacion: lugar.population,
 
-        return []; //lugares que coincidan
+            }));
+            return respuesta[0];
+        }catch(error){
+            
+            return [];
+        }
+
     }
 }
 

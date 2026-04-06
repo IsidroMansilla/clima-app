@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/IsidroMansilla/clima-app#readme",
   "dependencies": {
+    "axios": "^1.14.0",
     "colors": "^1.4.0",
     "inquirer": "^8.2.4"
   }

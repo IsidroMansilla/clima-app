@@ -23,5 +23,8 @@ npm unistall color
 Changing Inquirer version:
 npm install inquirer@8.2.4
 
+Request HTTP
+npm i axios
+
 # Proyect start
 npm start
