@@ -9,21 +9,27 @@ const main = async() => {
 
     do{
         opt = await inquirerMenu();
-        console.log(opt);
-
         switch( opt ){
             case '1':
-                //Mostrar mensaje
                 const lugar = await leerInput('Pais: ');
+                const lugarSel = await busquedas.agregarHistorial(lugar);
                 const pais = await busquedas.pais(lugar);
+                const clima = await busquedas.clima(pais.latitud, pais.longitud);
 
+                
                 console.log("\nInformación del país".green);
                 console.log("Capital: ".blue, pais.capital[0]);
                 console.log("Lat: ".blue, pais.latitud);
                 console.log("Lng: ".blue, pais.longitud);
                 console.log("Región: ".blue, pais.region);
                 console.log("Población: ".blue, pais.poblacion);
-
+                console.log("\nCondiciones climatológicas".green);
+                console.log("Temperatura: ".blue, clima.temperatura);
+                console.log("Viento: ".blue, clima.viento);
+            break;
+            
+            case '2':
+                busquedas.historialCapitalizado();
             break;
         }
 

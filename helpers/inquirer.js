@@ -53,7 +53,6 @@ const pausa = async() => {
 }
 
 const leerInput = async( message ) => {
-    console.log("Entro en leer");
     const question = [
         {
             type: 'input',

@@ -28,3 +28,12 @@ npm i axios
 
 # Proyect start
 npm start
+
+# Docker
+## Build image
+docker build -t mi-app-clima .
+
+## Run Container
+-i (interactive)
+-t (tty)
+docker run -it mi-app-clima
